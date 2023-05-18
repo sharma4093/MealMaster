@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    th {
+        border: 1px solid black;
+        width: 900px;
+        height: 70px;
+        background-color: darkslategray;
+        color: whitesmoke;
+        text-align: center;
+        font-weight: 900;
+    }
+
+    td {
+        text-align: center;
+        color: whitesmoke;
+        border: 1px solid black;
+        height: 70px;
+        width: 80px;
+        row-gap: 10px;
+        padding: 10px;
+    }
+
+    #day {
+        font-weight: 900;
+        background-color: brown;
+    }
+
+    #bfast {
+        background-color: chocolate;
+    }
+
+    #lunch {
+        background-color: rgba(207, 43, 43, 0.811);
+    }
+
+    #dinner {
+        background-color: dimgray;
+    }
+</style>
+<div style=" display:flex; justify-content: space-between;">
+    <h2>Menu Card</h2>
+    {% comment %} <a href="{% url 'edit_menu' %}">
+        <button style="background-color:darkturquoise; border:1px solid black;border-radius: 30px; width:fit-content; height:fit-content; ">Edit Menu</button></a> {% endcomment %}
+
+    </div>
+
+<div>
+     <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">Day</th>
+                <th>Breakfast</th>
+                <th>Lunch</th>
+                <th>Dinner</th>
+
+            </tr>
+        </thead>
+        {% for i in day %}
+        <tbody>
+            <tr>
+                <td id="day" style="padding:10px;">{{ i.day }}</td>
+                <td id="bfast">{{ i.breakfast }}</td>
+                <td id="lunch">{{ i.lunch }}</td>
+                <td id="dinner">{{ i.dinner }}</td>+
+                <!-- <td class="text-right">
+                    <div class="actions">
+                        <a href="{% url 'view_student' %}" class="btn btn-sm bg-success-light mr-2">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </div>
+                </td> -->
+            </tr>
+        </tbody>
+        {% endfor %} 
+
+
+    
+    </table>
+
+
+</div>
+
+{% endblock %}

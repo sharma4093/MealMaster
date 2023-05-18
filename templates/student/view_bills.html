@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %} <h1>Bills for {{ student.user.first_name }} {{ student.user.last_name }}</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Days of Leave Taken</th>
+      <th>Total Days in Month</th>
+      <th>Amount Due</th>
+      <th>Payment Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bill in bills %}
+      <tr>
+        <td>{{ bill.month }}</td>
+        <td>{{ bill.year }}</td>
+        <td>{{ bill.days_of_leave_taken }}</td>
+        <td>{{ bill.total_days_in_month }}</td>
+        <td>{{ bill.amount_due }}</td>
+        <td>{% if bill.payment_status %}Paid{% else %}Not Paid{% endif %}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="6">No bills found for this student</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table> {% endcomment %}
+
+<!--
+ <h1>View Monthly Bill</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Days of Leave Taken</th>
+      <th>Total Days in Month</th>
+      <th>bill</th>
+      {% comment %} <th>Payment Status</th> {% endcomment %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for bill in bills %}
+      <tr>
+        <td>{{ bill.student.user.first_name }} {{ bill.student.user.last_name }}</td>
+        <td>{{ bill.month }}</td>
+        <td>{{ bill.year }}</td>
+        <td>{{ bill.days_of_leave_taken }}</td>
+        <td>{{ bill.total_days_in_month }}</td>
+        <td>{{ bill.amount_due }}</td>
+        {% comment %} <td>{{ "Paid" if bill.payment_status else "Unpaid" }}</td> {% endcomment %}
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="7">No bills found.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table> 
+-->
+
+<h2> View monthly bill </h2>
+
+<table class="table table-borderless">
+  <thead>
+    <tr>
+     
+      <th scope="col">Student Name</th>
+      <th scope="col">Month</th>
+      <th scope="col">Year</th>
+      <th scope="col">Days of Leave Taken</th>
+
+      <th scope="col">bill</th>
+       <th>Payment Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bill in bills %}
+    <tr>
+      <td>{{ bill.student.user.first_name }} {{ bill.student.user.last_name }}</td>
+      <td>{{ bill.month }}</td>
+      <td>{{ bill.year }}</td>
+      <td>{{ bill.days_of_leave_taken }}</td>
+      {% comment %} <td>{{ bill.total_days_in_month }}</td> {% endcomment %}
+      <td>{{ bill.amount_due }}</td>
+       {% comment %} <td>{{ "Paid" if bill.payment_status  else "Unpaid" }}</td>  {% endcomment %}
+       <td>
+       {% if bill.payment_status %}Paid{% else %}Unpaid{% endif %}
+       </td>
+    </tr>
+  {% empty %}
+    <tr>
+      <td colspan="7">No bills found.</td>
+    </tr>
+  {% endfor %}
+   
+  </tbody>
+</table>
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+

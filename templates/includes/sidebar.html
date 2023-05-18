@@ -1,0 +1,293 @@
+{% load static %}
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner slimscroll">
+    <div id="sidebar-menu" class="sidebar-menu">
+{% if user.user_type == '1' %}
+
+      <ul>
+        <li class="menu-title">
+          <span>Main Menu</span>
+        </li>
+
+        <li>
+          <a href="{% url 'owner_home' %}"
+            ><i class="fas fa-holly-berry"></i> <span>Dashboard</span></a
+          >
+        </li>
+
+        <li class="submenu">
+          <a href="#"
+            ><i class="fas fa-user-graduate"></i> <span> Students</span>
+            <span class="menu-arrow"></span
+          ></a>
+          <ul>
+           
+            
+            <li><a href="{% url 'add_student' %}"> add Student</a></li>
+            <li><a href="{% url 'view_student' %}">view Student </a></li>
+          </ul>
+        </li>
+        <li class="submenu">
+          <a href="#"
+            ><i class="fas fa-chalkboard-teacher"></i>
+            <span> Staff/worker</span> <span class="menu-arrow"></span
+          ></a>
+          <ul>
+           
+            <li><a href="{% url 'add_staff' %}">add staff </a></li>
+            <li><a href="{% url 'view_staff' %}">view staff </a></li>
+          </ul>
+
+        <li class="submenu">
+          <a href="#"
+            ><i class="fas fa-book-reader"></i> <span> MESS MENU</span>
+            <span class="menu-arrow"></span
+          ></a>
+          <ul>
+            
+            <li><a href="{% url 'add_menu' %}">Menu Add</a></li>
+            <li><a href="{% url 'view_menu' %}">Menu view</a></li>
+            <li><a href="{% url 'edit_menu' %}">edit_menu </a></li>
+          </ul>
+        </li>
+{% comment %} 
+        <li class="submenu">
+          <a href="#"
+            ><i class="fas fa-calendar-alt"></i> <span> Session</span>
+            <span class="menu-arrow"></span
+          ></a>
+          <ul>
+            <li><a href="subjects.html">session view</a></li>
+            <li><a href="add-subject.html">session Add</a></li>
+            <li><a href="edit-subject.html">session Edit</a></li>
+          </ul>
+        </li> {% endcomment %}
+
+
+        <li>
+          <a href="{% url 'staff_send_notification' %}"
+            ><i class="	fas fa-bell"></i>
+            <span>send staff notifications</span></a
+          >
+        </li>
+
+        
+        <li>
+          <a href="{% url 'student_send_notification' %}"
+            ><i class="	fas fa-bell"></i>
+            <span>send student notifications</span></a
+          >
+        </li>
+
+
+
+
+        <li>
+               <a href="{% url 'attendance_report' %}"
+            ><i class="fas fa-address-card"></i> <span>View Attendance</span></a
+          >
+        </li>
+
+        <li>
+          <a href="{% url 'staff_feedback_reply' %}"
+            ><i class="fas fa-comments"></i> <span>Staff Feedback</span></a
+          >
+        </li>
+
+
+        <li>
+          <a href="{% url 'student_feedback_reply' %}"
+            ><i class="fas fa-comments"></i> <span>Student Feedback</span></a
+          >
+        </li>
+
+
+        <li>
+          <a href="{% url 'staff_leave_view' %}"
+            ><i class="fas fa-holly-berry"></i> <span>Staff leave</span></a
+          >
+        </li>
+
+        <li>
+          <a href="{% url 'student_mess_off_view' %}"
+            ><i class="fas fa-power-off"></i>
+            <span>Student Mess off leave</span></a
+          >
+        </li>
+        
+         <li>
+          <a href="{% url 'view_bill' %} "
+       ><i class="fas fa-address-card"></i> <span>View bills of student</span></a
+     >
+   </li> 
+
+        <li>
+          <a href="{% url 'home' %}"
+            ><i class="fas fa-sign-out-alt"></i> <span>logout</span></a
+          >
+        </li>
+
+        {% elif user.user_type == '2' %}
+
+        <ul>
+          <li class="menu-title">
+            <span>Main Menu</span>
+          </li>
+  
+          <li>
+            <a href="{% url 'owner_home' %}"
+              ><i class="fas fa-holly-berry"></i> <span>Dashboard</span></a
+            >
+          </li>
+
+          <li >
+            <a href="{% url 'notifications' %}"
+              ><i class="fas fa-bell"></i>
+              <span>Notifications</span></a
+            >
+          </li>
+          
+          <li>
+            <a href="{% url 'staff_take_attendance' %}"
+              ><i class="	fas fa-calendar-alt"></i>
+              <span> take attendance</span></a
+            >
+          </li>
+  
+          <li>
+            <a href="{% url 'attendance_report' %}"
+              ><i class="	fas fa-calendar-alt"></i>
+              <span>view attendance </span></a
+            >
+          </li>
+
+
+
+          
+          <li >
+            <a href="{% url 'staff_apply_leave' %}"
+              ><i class="far fa-envelope-open"></i>
+              <span>apply for leave</span></a
+            >
+          </li>
+
+          
+          <li>
+            <a href="{% url 'view_menu' %}"
+              ><i class="far fa-calendar-alt"></i>
+              <span>view menu</span></a
+            >
+          </li>
+
+          
+          <li>
+            <a href="{% url 'staff_feedback' %}"
+              ><i class="fas fa-comments"></i>
+              <span>send feedback</span></a
+            >
+          </li>
+
+             
+          
+
+
+          <li>
+            <a href="{% url 'generate_bill' %}"
+              ><i class="	fas fa-calendar-alt"></i>
+              <span> generate bill</span></a
+            >
+          </li>
+  
+
+          <li>
+            <a href="{% url 'home' %}"
+              ><i class="fas fa-sign-out-alt"></i> <span>logout</span></a
+            >
+          </li>
+  
+  
+
+      
+        </ul>
+
+
+
+        {% else %}
+
+        <ul>
+          <li class="menu-title">
+            <span>Main Menu</span>
+          </li>
+  
+          <li>
+            <a href="{% url 'student_home' %}"
+              ><i class="fas fa-holly-berry"></i> <span>Dashboard</span></a
+            >
+          </li>
+                
+          <li class="">
+            <a href="{% url 'student_notification' %}">
+              <i class="	fas fa-bell"></i> <span> Notifications</span></a>
+
+          </li>
+
+
+          <li class="">
+            <a href="{% url 'attendance_report' %}">
+              <i class="fas fa-address-card"></i> <span>View Attendance</span></a>
+
+          </li>
+
+          
+          <li class="">
+            <a href="{% url 'view_menu' %}">
+              <i class="fas fa-book-reader"></i> <span>View Mess Menu</span></a>
+
+          </li>
+
+          
+          <li class="">
+            <a href="{% url 'student_mess_off' %}">
+              <i class="fas fa-power-off"></i> <span>Mark mess off</span></a>
+
+          </li>
+
+{% comment %}         
+          <li class="">
+            <a href="">
+              <i class="fas fa-calendar-alt"></i> <span>View bill</span></a>
+
+          </li> {% endcomment %}
+          <li class=""> 
+           
+            <a href="{% url 'view_bills'  %}">
+            <i class="fas fa-calendar-alt"></i> <span>View bill</span></a>
+
+        </li> 
+
+     
+            
+          <li class="">
+            <a href="{% url 'student_feedback' %}">
+              <i class="fas fa-comments"></i> <span>Send feedback</span></a>
+
+          </li>
+
+          
+
+           
+          <li class="">
+            <a href="{% url 'home' %}">
+              <i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+
+          </li>
+
+
+            {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

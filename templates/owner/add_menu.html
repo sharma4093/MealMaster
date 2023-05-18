@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- <div class="ro"></div> -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{% url 'add_menu' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-12">
+                    <h5 class="form-title">
+                        <span style="font-weight: bold;">Add Menu </span>
+                    </h5>
+                </div>
+
+                {% include 'includes/messages.html' %}
+
+                <div class="col-12 col-sm-11">
+                    <label style="font-weight: bold;">day</label>
+                    <input type="text" class="form-control" placeholder="enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4 mt-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4 mt-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4 mt-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+                <!-- 
+            <div class="col-12 col-sm-11">
+                    <h5 style="font-weight: bold;">Tuesday</h5>
+                    <input type="text" class="form-control" placeholder=" enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-11">
+                    <h5 style="font-weight: bold;">Wednesday</h5>
+                    <input type="text" class="form-control" placeholder=" enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-11">
+                    <h5 style="font-weight: bold;">Thursday</h5>
+                    <input type="text" class="form-control" placeholder=" enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-11">
+                    <h5 style="font-weight: bold;">Friday</h5>
+                    <input type="text" class="form-control" placeholder=" enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-11">
+                    <h5 style="font-weight: bold;">Saturday</h5>
+                    <input type="text" class="form-control" placeholder=" enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-11">
+                    <h5 style="font-weight: bold;">Sunday</h5>
+                    <input type="text" class="form-control" placeholder=" enter day" name="day" required />
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" placeholder="breakfast" name="breakfast" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" placeholder="Lunch" name="lunch" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" placeholder="Dinner" name="dinner" required />
+                        </div>
+                    </div>
+                </div>
+ -->
+
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

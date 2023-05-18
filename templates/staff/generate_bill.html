@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+{% comment %} <h1>Generate Bill</h1>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="student_id">Student:</label>
+    <select name="student_id" id="student_id" class="form-control">
+      {% for student in students %}
+        <option value="{{ student.id }}">{{ student.user.first_name }} {{ student.user.last_name }}</option>
+      {% endfor %}
+    </select>
+  </div> {% endcomment %}
+  {% comment %} <div class="form-group">
+    <label for="month">Month:</label>
+    <select name="month" id="month" class="form-control">
+      {% for i in 1..12 %}
+        <option value="{{ i }}">{{ i }}</option>
+      {% endfor %} 
+  
+    </select>
+  </div> {% endcomment %}
+{% comment %} 
+  <div class="form-group">
+    <label for="month">Month:</label>
+    <select name="month" id="month" class="form-control">
+        {% for i in "123456789" %}
+        <option value="{{ i }}">{{ i }}</option>
+    {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="year">Year:</label>
+    <input type="number" name="year" id="year" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Generate Bill</button>
+</form> {% endcomment %}
+
+
+
+
+<h1>Generate Monthly Bill</h1>
+<br>
+<form method="POST">
+  {% csrf_token %}
+
+
+
+  <div class="col-12 col-sm-11">
+  <div  class="form-group">
+  <label for="month">Month:</label>
+  <input type="text" name="month" required>
+
+</div>
+  </div>
+
+  <div class="col-12 col-sm-11">
+  <div  class="form-group">
+  <label for="year">Year:</label>
+  <input type="number" name="year" required>
+  </div>
+</div>
+
+<div class="col-12 col-sm-11">
+  <div  class="form-group">
+  <label for="cost_per_day">Cost per day:</label>
+  <input type="number" name="cost_per_day" required>
+  </div>
+</div>
+  
+
+<div class="col-12 mt-4">
+  <button type="submit" class="btn btn-primary">Generate Bill</button>
+</div>
+
+<br>
+</form>
+
+
+
+
+
+{% endblock  %}

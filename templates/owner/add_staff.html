@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <form method="post" action= "{% url 'add_staff' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+             <div class="col-12">
+                <h5 class="form-title">
+                  <span>Add staff</span>
+                </h5>
+              </div>
+
+              {% include 'includes/messages.html' %}
+              <div class="col-12 col-sm-11">
+                <div class="form-group">
+                  <label>profile pic</label>
+                  <input type="file" class="form-control" name="profile_pic" required />
+                </div>
+              </div>
+              <div class="col-12 col-sm-11">
+                <div class="form-group">
+                  <label>first Name*</label>
+                  <input type="text" class="form-control"  name="first_name" required />
+                </div>
+              </div>
+              <div class="col-12 col-sm-11">
+                <div class="form-group">
+                  <label>last name</label>
+                  <input type="text" class="form-control" name="last_name"  required   />
+                </div>
+              </div>
+  
+
+              <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                    <label>email*</label>
+                    <input type="email" class="form-control"  name="email"  required     />
+                  </div>
+                </div>
+  
+                <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                    <label>username*</label>
+                    <input type="text" class="form-control" name="username"   required   />
+                  </div>
+                </div>
+                <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                   <label>password*</label>
+                    <input type="password" id="pwd" class="form-control" name="password"  required   />
+                  </div>
+                </div>
+                <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                    <label>confirm password*</label>
+
+                    <input type="password" id="cpwd" class="form-control"   required   />
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select class="form-control" name="gender"  required >
+                           <option> Select Gender</option>
+                           <option> Female</option>
+                           <option> Male</option>
+                           <option> Others</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-11">
+                    <div class="form-group" >
+                       <label>Address*</label>
+                       <textarea class="form-control"  name="address" required></textarea>
+                    </div>
+                 </div>
+
+                
+
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">ADD staff</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var password = document.getElementById("pwd");
+    var confirm_password = document.getElementById("cpwd");
+
+    function validatePassword() {
+      if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+      } else {
+        confirm_password.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+  </script>
+{% endblock  %}

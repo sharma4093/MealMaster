@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    th {
+        border: 1px solid black;
+        width: 900px;
+        height: 70px;
+        background-color: darkslategray;
+        color: whitesmoke;
+        text-align: center;
+        font-weight: 900;
+    }
+
+    td {
+        text-align: center;
+        color: whitesmoke;
+        border: 1px solid black;
+        height: 70px;
+        width: 80px;
+        row-gap: 10px;
+        padding: 10px;
+    }
+
+    #day {
+        font-weight: 900;
+        background-color: brown;
+    }
+
+    #bfast {
+        background-color: chocolate;
+    }
+
+    #lunch {
+        background-color: rgba(207, 43, 43, 0.811);
+    }
+
+    #dinner {
+        background-color: dimgray;
+    }
+</style>
+<div style=" display:flex; justify-content: space-between;">
+    <h2>Menu Card</h2>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">Day</th>
+                <th>Breakfast</th>
+                <th>Lunch</th>
+                <th>Dinner</th>
+                <th style="width: 20px; ">edit</th>
+                <th style="width: 20px; ">delete</th>
+
+            </tr>
+        </thead>
+        {% for i in day %}
+        <tbody>
+            <tr>
+                <td id="day" style="padding:10px;">{{ i.day }}</td>
+                <td id="bfast">{{ i.breakfast }}</td>
+                <td id="lunch">{{ i.lunch }}</td>
+                <td id="dinner">{{ i.dinner }}</td>
+                
+                <td id="edit" >
+                   <a href="{% url 'update_menu' i.id %}" class="btn btn-sm bg-success-light mr-2">
+                    <i class="fas fa-pen"></i>
+                    </a>
+                </td>
+
+                <td id="delete">
+                    <a href="{% url 'delete_menu' i.id %}" class="btn btn-sm bg-danger-light">
+                        <i class="fas fa-trash"></i>
+                     </a>
+                 </td>
+{% comment %} 
+                <td class="text-right">
+                    <div class="actions">
+                        <a href="" class="btn btn-sm bg-danger-light">
+                                  <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </td> {% endcomment %}
+            </tr>
+        </tbody>
+        {% endfor %}
+
+
+
+    </table>
+
+
+</div>
+
+{% endblock %}

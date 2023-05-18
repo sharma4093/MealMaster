@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <form method="post" action= "{% url 'update_staff' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+             <div class="col-12">
+                <h5 class="form-title">
+                  <span>Edit staff  {{staff.admin.first_name}}</span>
+                </h5>
+              </div>
+
+              {% include 'includes/messages.html' %}
+              <div class="col-12 col-sm-11">
+                <div class="form-group">
+                  <label>profile pic</label>
+                  <input type="file" class="form-control" name="profile_pic"   />
+                  <input type="text" class="form-control"  name="staff_id" value="{{staff.admin.id}}" required hidden />
+                </div>
+              </div>
+              <div class="col-12 col-sm-11">
+                <div class="form-group">
+                  <label>first Name</label>
+                  <input type="text" class="form-control"  name="first_name" value="{{staff.admin.first_name}}" required />
+                </div>
+              </div>
+              <div class="col-12 col-sm-11">
+                <div class="form-group">
+                  <label>last name</label>
+                  <input type="text" class="form-control" name="last_name" value="{{staff.admin.last_name}}"  required   />
+                </div>
+              </div>
+  
+
+              <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                    <label>email</label>
+                    <input type="email" class="form-control"  name="email" value="{{staff.admin.email}}" required   readonly  />
+                  </div>
+                </div>
+  
+                <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                    <label>username</label>
+                    <input type="text" class="form-control" name="username" value="{{staff.admin.username}}"  required readonly   />
+                  </div>
+                </div>
+                <div class="col-12 col-sm-11">
+                  <div class="form-group">
+                    <label>password</label>
+                    <input type="password" class="form-control" name="password" placeholder="fill only if you want to change password"   />
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-11">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select class="form-control" name="gender"  required >
+                           <option> Select Gender</option>
+                           <option> Female</option>
+                           <option> Male</option>
+                           <option> Others</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-11">
+                    <div class="form-group" >
+                       <label>Address</label>
+                       <textarea class="form-control"  name="address" required>{{staff.address}}</textarea>
+                    </div>
+                 </div>
+
+                
+
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Update staff</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock  %}

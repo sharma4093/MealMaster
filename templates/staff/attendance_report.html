@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Attendance Report for {{ date }}</h2>
+  {% if report_data %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Roll Number</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in report_data %}
+          <tr>
+            <td>{{ data.roll_number }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.status }}</td>
+            <td>{{ data.date }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No attendance data available for this date.</p>
+  {% endif %}
+{% endblock %}

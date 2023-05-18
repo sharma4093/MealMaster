@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- <div class="ro"></div> -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{% url 'save_update_menu' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-12">
+                    <h5 class="form-title">
+                        <span style="font-weight: bold;">EDIT Menu </span>
+                    </h5>
+                </div>
+
+                {% include 'includes/messages.html' %}
+
+                <div class="col-12 col-sm-11">
+                    {% for menu_item in Menu %}
+                    <label style="font-weight: bold;">day</label>
+                    <input type="text" class="form-control" value="{{ menu_item.day }}" name="day" readonly />
+                    <input type="text" class="form-control" value="{{ menu_item.id }}" name="day_id" hidden />
+                    <div class="row">
+                        <div class="col-4 mt-4">
+                            <label>Breakfast</label>
+                            <input type="text" class="form-control" value="{{ menu_item.breakfast }}" name="breakfast"  />
+                        </div>
+                        <div class="col-4 mt-4">
+                            <label>Lunch</label>
+                            <input type="text" class="form-control" value="{{ menu_item.lunch }}" name="lunch" />
+                        </div>
+                        <div class="col-4 mt-4">
+                            <label>Dinner</label>
+                            <input type="text" class="form-control" value="{{ menu_item.dinner }}" name="dinner" />
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-primary">UPDATE</button>
+                </div>
+            </form>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock  %}

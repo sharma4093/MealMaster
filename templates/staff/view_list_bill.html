@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Billing Records</h2>
+  
+  <p>{{ message }}</p>
+  
+  {% if billing_records %}
+
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Month</th>
+          <th>Year</th>
+          <th>Days of Leave Taken</th>
+          <th>Total Days in Month</th>
+          <th>bill</th>
+          <th>Payment Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for billing in billing_records %}
+        
+          <tr>
+            <td>{{ billing.student }}</td>
+            <td>{{ billing.month }}</td>
+            <td>{{ billing.year }}</td>
+            <td>{{ billing.days_of_leave_taken }}</td>
+            <td>{{ billing.total_days_in_month }}</td>
+            <td>{{ billing.amount_due }}</td>
+            <td>
+              {% if billing.payment_status %}Paid{% else %}Unpaid{% endif %}
+              </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No billing records found for the selected month and year.</p>
+  {% endif %}
+{% endblock %}

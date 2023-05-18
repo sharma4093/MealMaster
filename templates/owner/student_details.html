@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Student Details</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+                        <li class="breadcrumb-item active">Student Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about-info">
+                            <h4>About Me</h4>
+
+                            {% for i in student %}
+                            <div class="media mt-3">
+                                <img src="/{{i.user.profile_pic}}" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <ul>
+                                        <li>
+                                            <span class="title-span">ID : </span>
+                                            <span class="info-span">{{i.id}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Full Name : </span>
+                                            <span class="info-span">{{i.user.first_name}}  {{i.user.last_name}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Email : </span>
+                                            <span class="info-span">{{i.user.email}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Course : </span>
+                                            <span class="info-span">{{i.course_id.name}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Session Year : </span>
+                                            <span class="info-span"> {{i.session_year_id}} </span>  
+
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Roll No: </span>
+                                            <span class="info-span">{{i.roll_number}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Gender : </span>
+                                            <span class="info-span">{{i.gender}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Room Number : </span>
+                                            <span class="info-span">{{i.room_number}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Mobile Number : </span>
+                                            <span class="info-span">{{i.phone_number}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Address : </span>
+                                            <span class="info-span">{{i.address}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+     
